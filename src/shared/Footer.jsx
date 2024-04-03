@@ -29,7 +29,8 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer>
-            <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+            <hr className='w-fit'/>
+            <footer className="footer footer-center p-4 bg-green-400 text-base-content">
                 <aside>
                     <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
                 </aside>

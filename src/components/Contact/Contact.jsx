@@ -13,7 +13,7 @@ const Contact = () => {
                 <Zoom>
                 <h2 className='text-center  font-bold text-4xl my-10'>Contact <span className='text-[#4ADE80]'>Us</span></h2>
                 </Zoom>
-                <div className='hero-content flex-col lg:flex-row-reverse'>
+                <div className='hero-content flex-col lg:flex-row-reverse gap-24'>
                     <Slide direction='right'>
                         <form >
 
