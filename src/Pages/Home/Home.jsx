@@ -1,13 +1,14 @@
 import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import Products from '../../components/Products/Products';
+import Contact from '../../components/Contact/Contact';
 
 const Home = () => {
     return (
         <div>
-            <h1 className="font-bold text-4xl text-center py-10">This is Home page</h1>
             <Banner/>
             <Products/>
+            <Contact/>
         </div>
     );
 };

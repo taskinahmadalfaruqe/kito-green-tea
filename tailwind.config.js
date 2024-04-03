@@ -9,6 +9,18 @@ export default {
       "cupcake",
     ],
   },
+  theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "10px",
+        sm: "10px",
+        lg: "30px",
+        xl: "50px",
+        "2xl": "80px",
+      },
+    },
+  },
   // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
 }
