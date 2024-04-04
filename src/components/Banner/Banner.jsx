@@ -35,20 +35,20 @@ const Banner = () => {
                     >
                         <SwiperSlide className="md:h-[100px]">
                             <div>
-                                <img src="https://i.ibb.co/GpwRLg6/2150782379.jpg" alt="" />
+                                <img src="https://i.ibb.co/t8vyGhV/1711907352305.png" alt="" />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
                             <div>
-                                <img src="https://i.ibb.co/MMZmwJd/2150752808.jpg" alt="" />
+                                <img src="https://i.ibb.co/MM0sQQR/1711907352362.png" alt="" />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
                             <div>
-                                <img src="https://i.ibb.co/sVtj2cr/43257.jpg" alt="" />
+                                <img src="https://i.ibb.co/Pm1Nw3w/1711907352258.png" alt="" />
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide>
+                        {/* <SwiperSlide>
                             <div>
                                 <img src="https://i.ibb.co/tQFtdzg/selective-focus-shot-two-cute-friendly-dogs-sitting-each-other-nature.jpg" alt="" />
                             </div>
@@ -63,7 +63,7 @@ const Banner = () => {
                             <div>
                                 <img src="https://i.ibb.co/cDd0L25/2150782303-1.jpg" alt="" />
                             </div>
-                        </SwiperSlide>
+                        </SwiperSlide> */}
 
 
                     </Swiper>
