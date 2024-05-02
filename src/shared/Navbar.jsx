@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
     const NavItems = (
@@ -31,7 +31,7 @@ const Navbar = () => {
                             {NavItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">LOGO</a>
+                    <a className="btn btn-ghost text-xl">E-Shop bd</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
