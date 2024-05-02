@@ -7,6 +7,7 @@ import Home from "../Pages/Home/Home";
 import Contact from "../components/Contact/Contact";
 import About from "../Pages/About/About";
 import Products from "../components/Products/Products";
+import NotFound from "../Pages/NotFound/NotFound";
 
   const router = createBrowserRouter([
     {
@@ -33,10 +34,10 @@ import Products from "../components/Products/Products";
         
       ]
     },
-    // {
-    //     path: '*',
-    //     element: <NotFound></NotFound>
-    // }
+    {
+        path: '*',
+        element: <NotFound></NotFound>
+    }
   ]);
 
  
