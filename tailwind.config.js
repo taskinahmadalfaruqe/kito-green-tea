@@ -6,10 +6,23 @@ export default {
   ],
   daisyui: {
     themes: [
-      "cupcake",
+      "light",
     ],
   },
   theme: {
+    fontFamily: {
+      'Roboto': "'Roboto Condensed', 'sans-serif'",
+      'Poppins': "'Poppins', 'sans-serif'",
+    },
+    extend: {
+      colors: {
+        Primary_Color: '#04E762',
+        Black_Color: '#020202',
+        White_Color: '#fff',
+        Yellow_Color: '#F5B700',
+        Accent_Color: '#433BFF',
+      },
+    },
     container: {
       center: true,
       padding: {
@@ -21,6 +34,6 @@ export default {
       },
     },
   },
-  // eslint-disable-next-line no-undef
+  
   plugins: [require("daisyui")],
 }
