@@ -94,7 +94,7 @@ const Contact = () => {
 
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight ">GET IN TOUCH
                                 </h5>
-                                <p className="font-normal ">DON'T BE SHY. I appreciate your openness to collaboration and discussion. If you have any new projects, creative ideas, opportunities that align with my expertise, I would be delighted to explore them further with you. Together, we can work towards bringing your visions to life and achieving great results. Please feel free to reach out to me anytime; I'm always here to listen and contribute to meaningful endeavors..</p>
+                                <p className="font-normal ">DO NOT BE SHY. I appreciate your openness to collaboration and discussion. If you have any new projects, creative ideas, opportunities that align with my expertise, I would be delighted to explore them further with you. Together, we can work towards bringing your visions to life and achieving great results. Please feel free to reach out to me anytime; I'm always here to listen and contribute to meaningful endeavors..</p>
                                 <div className='flex gap-2 items-center pb-2'>
                                     <p ><MdMarkEmailRead className='text-[#4ADE80] h-12 w-12' /></p>
                                     <div className='flex-col'>
