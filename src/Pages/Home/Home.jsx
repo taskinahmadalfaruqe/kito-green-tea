@@ -1,15 +1,15 @@
-import Banner from '../../components/Banner/Banner';
-import Products from '../../components/Products/Products';
-import Contact from '../../components/Contact/Contact';
+import Banner from "../../components/Banner/Banner";
+import Contact from "../../components/Contact/Contact";
+import AllProductCard from "../../components/ProductCard/AllProductCard";
 
 const Home = () => {
-    return (
-        <div>
-            <Banner/>
-            <Products/>
-            <Contact/>
-        </div>
-    );
+  return (
+    <div>
+      <Banner />
+      <AllProductCard></AllProductCard>
+      <Contact />
+    </div>
+  );
 };
 
 export default Home;

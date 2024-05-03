@@ -1,14 +1,11 @@
-
 import { Fade, Slide, Zoom } from 'react-awesome-reveal';
 import { MdMarkEmailRead } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
+import CommonButton from '../../shared/CommonButton';
 
 const Contact = () => {
-    
     return (
         <Fade>
-
-
             <div className="container">
                 <Zoom>
                 <h2 className='text-center  font-bold text-4xl my-10'>Contact <span className='text-[#4ADE80]'>Us</span></h2>
@@ -79,12 +76,7 @@ const Contact = () => {
                                 ></textarea>
                             </div>
                             <div className='text-center'>
-                                <button type='submit'>
-                                    <a href="#_" className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group">
-                                        <span className="w-48 h-48 rounded rotate-[-40deg] bg-[#4ADE80] absolute bottom-0 left-0 -translate-x-full ease-out duration-1000 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-                                        <span className="relative w-full text-left  transition-colors duration-400 ease-in-out group-hover:text-white">Send Message</span>
-                                    </a>
-                                </button>
+                                <CommonButton ButtonName='Submit'></CommonButton>
                             </div>
                         </form>
                     </Slide>
@@ -94,7 +86,7 @@ const Contact = () => {
 
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight ">GET IN TOUCH
                                 </h5>
-                                <p className="font-normal ">DO NOT BE SHY. I appreciate your openness to collaboration and discussion. If you have any new projects, creative ideas, opportunities that align with my expertise, I would be delighted to explore them further with you. Together, we can work towards bringing your visions to life and achieving great results. Please feel free to reach out to me anytime; I'm always here to listen and contribute to meaningful endeavors..</p>
+                                <p className="font-normal ">DO NOT BE SHY. I appreciate your openness to collaboration and discussion. If you have any new projects, creative ideas, opportunities that align with my expertise, I would be delighted to explore them further with you. Together, we can work towards bringing your visions to life and achieving great results. Please feel free to reach out to me anytime; I am always here to listen and contribute to meaningful endeavors..</p>
                                 <div className='flex gap-2 items-center pb-2'>
                                     <p ><MdMarkEmailRead className='text-[#4ADE80] h-12 w-12' /></p>
                                     <div className='flex-col'>

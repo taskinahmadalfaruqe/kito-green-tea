@@ -1,0 +1,92 @@
+[
+  {
+    "id":"08",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 1",
+    "regularPrice": 25.99,
+    "discountPrice": 19.99,
+    "productCategory": "Electronics",
+    "productDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    "id":"09",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 2",
+    "regularPrice": 49.99,
+    "discountPrice": 39.99,
+    "productCategory": "Clothing",
+    "productDetails": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+  },
+  {
+    "id":"10",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 3",
+    "regularPrice": 15.00,
+    "discountPrice": 12.50,
+    "productCategory": "Home & Kitchen",
+    "productDetails": "Duis consequat odio et dui elementum, nec ultrices nisl dictum."
+  },
+  {
+    "id":"01",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 4",
+    "regularPrice": 39.99,
+    "discountPrice": 29.99,
+    "productCategory": "Beauty",
+    "productDetails": "Nulla facilisi. Sed ultrices, quam ac ullamcorper finibus, felis velit consectetur nulla, eget fermentum libero nibh ac mi."
+  },
+  {
+    "id":"02",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 5",
+    "regularPrice": 79.99,
+    "discountPrice": 59.99,
+    "productCategory": "Sports & Outdoors",
+    "productDetails": "Praesent vitae ante nec urna posuere iaculis."
+  },
+  {
+    "id":"03",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 6",
+    "regularPrice": 18.50,
+    "discountPrice": 15.00,
+    "productCategory": "Books",
+    "productDetails": "Donec sit amet neque vel ipsum finibus vestibulum."
+  },
+  {
+    "id":"04",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 7",
+    "regularPrice": 99.99,
+    "discountPrice": 79.99,
+    "productCategory": "Furniture",
+    "productDetails": "Fusce ut lacus sit amet diam faucibus convallis."
+  },
+  {
+    "id":"05",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 8",
+    "regularPrice": 34.99,
+    "discountPrice": 24.99,
+    "productCategory": "Toys & Games",
+    "productDetails": "Maecenas ac pretium purus, eget laoreet velit."
+  },
+  {
+    "id":"06",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 9",
+    "regularPrice": 45.00,
+    "discountPrice": 39.99,
+    "productCategory": "Health & Personal Care",
+    "productDetails": "Vivamus eu ligula in tellus accumsan lobortis."
+  },
+  {
+    "id":"07",
+    "image": "https://i.ibb.co/Ch0Cw8k/brav02.jpg",
+    "productName": "Product 10",
+    "regularPrice": 29.99,
+    "discountPrice": 19.99,
+    "productCategory": "Pet Supplies",
+    "productDetails": "Quisque vehicula pharetra ex eu eleifend."
+  }
+]

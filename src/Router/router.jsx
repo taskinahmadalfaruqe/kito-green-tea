@@ -6,8 +6,8 @@ import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Contact from "../components/Contact/Contact";
 import About from "../Pages/About/About";
-import Products from "../components/Products/Products";
 import NotFound from "../Pages/NotFound/NotFound";
+import AllProductCard from "../components/ProductCard/AllProductCard";
 
   const router = createBrowserRouter([
     {
@@ -21,7 +21,7 @@ import NotFound from "../Pages/NotFound/NotFound";
         },
         {
           path: '/products',
-          element: <Products/>
+          element: <AllProductCard></AllProductCard>,
         },
         {
           path: '/contact',
