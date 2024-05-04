@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import CommonButton from "../../shared/CommonButton";
+import { Link } from "react-router-dom";
 
 const SingleProductCard = ({ singleProduct }) => {
   const {
+    id,
     image,
     discountPrice,
     productCategory,
@@ -30,7 +32,6 @@ const SingleProductCard = ({ singleProduct }) => {
           BDT
         </div>
       </div>
-      <div></div>
       <div className="h-14 overflow-hidden">
         {productDetails.length < 60
           ? productDetails
@@ -39,6 +40,7 @@ const SingleProductCard = ({ singleProduct }) => {
       <div className="flex justify-between items-center">
         <CommonButton ButtonName="Add To Cart"></CommonButton>
         <CommonButton ButtonName="See Details"></CommonButton>
+        <Link to={`/products/${id}`}>ID</Link>
       </div>
     </div>
   );
