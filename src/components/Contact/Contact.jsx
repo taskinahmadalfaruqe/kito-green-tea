@@ -76,7 +76,7 @@ const Contact = () => {
                                 ></textarea>
                             </div>
                             <div className='text-center'>
-                                <CommonButton ButtonName='Submit'></CommonButton>
+                                <CommonButton ButtonName='Submit' NavigateLink='/'></CommonButton>
                             </div>
                         </form>
                     </Slide>

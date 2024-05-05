@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import CommonButton from "../../shared/CommonButton";
-import { Link } from "react-router-dom";
 
 const SingleProductCard = ({ singleProduct }) => {
+
+  //object destructure for lode data and show on it web page,
   const {
     id,
     image,
@@ -12,6 +13,31 @@ const SingleProductCard = ({ singleProduct }) => {
     productName,
     regularPrice,
   } = singleProduct;
+
+  //this data will set in local storage
+  const dataForCart = {
+    totalOrderItems: 1,
+    id,
+    image,
+    discountPrice,
+    productCategory,
+    productDetails,
+    productName,
+    regularPrice,
+  };
+
+  // make add to cart function and sate value in local storage.
+  const AddToCart = (singleProduct) => {
+    const addCardInStorage = [];
+    const localStorageCard = JSON.parse(localStorage.getItem("items"));
+    if (!localStorageCard) {
+      addCardInStorage.push(singleProduct);
+      localStorage.setItem("items", JSON.stringify(addCardInStorage));
+    } else {
+      addCardInStorage.push(...localStorageCard, singleProduct);
+      localStorage.setItem("items", JSON.stringify(addCardInStorage));
+    }
+  };
 
   return (
     <div className=" shadow-xl rounded-lg p-8 space-y-3 flex justify-between flex-col border-2">
@@ -38,9 +64,17 @@ const SingleProductCard = ({ singleProduct }) => {
           : productDetails.slice(0, 60) + "......."}
       </div>
       <div className="flex justify-between items-center">
-        <CommonButton ButtonName="Add To Cart"></CommonButton>
-        <CommonButton ButtonName="See Details"></CommonButton>
-        <Link to={`/products/${id}`}>ID</Link>
+        <div onClick={() => AddToCart(dataForCart)} className="">
+          <CommonButton
+            ButtonName="Add To Cart"
+            NavigateLink="/cart"
+          ></CommonButton>
+        </div>
+
+        <CommonButton
+          ButtonName="See Details"
+          NavigateLink={`/products/${id}`}
+        ></CommonButton>
       </div>
     </div>
   );

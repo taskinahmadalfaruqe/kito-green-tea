@@ -15,6 +15,7 @@ const SingleProductWithDetails = () => {
     }
   }, [id, loadSingleProduct]);
 
+  //Object destructure for find all value;
   const {
     image,
     discountPrice,
@@ -23,6 +24,43 @@ const SingleProductWithDetails = () => {
     productName,
     regularPrice,
   } = findData;
+
+  // declare a useState function to manage total number of items
+  const [totalOrderItems, setTotalOrderItems] = useState(1);
+  const IncreaseCartItem = () => {
+    if (totalOrderItems < 10) {
+      setTotalOrderItems((prevItems) => prevItems + 1);
+    }
+  };
+  const DecreaseCartItem = () => {
+    if (totalOrderItems > 1) {
+      setTotalOrderItems((prevItems) => prevItems - 1);
+    }
+  };
+
+  const dataForCart = {
+    totalOrderItems,
+    id,
+    image,
+    discountPrice,
+    productCategory,
+    productDetails,
+    productName,
+    regularPrice,
+  };
+
+  // set add t cart data in local storage
+  const AddToCart = (singleProduct) => {
+    const addCardInStorage = [];
+    const localStorageCard = JSON.parse(localStorage.getItem("items"));
+    if (!localStorageCard) {
+      addCardInStorage.push(singleProduct);
+      localStorage.setItem("items", JSON.stringify(addCardInStorage));
+    } else {
+      addCardInStorage.push(...localStorageCard, singleProduct);
+      localStorage.setItem("items", JSON.stringify(addCardInStorage));
+    }
+  };
 
   return (
     <div className="container py-5">
@@ -51,10 +89,33 @@ const SingleProductWithDetails = () => {
             <div className="font-semibold text-2xl mb-2">Product Details:</div>
             <div>{productDetails}</div>
           </div>
+
           <div className="flex justify-between gap-5">
-            <CommonButton ButtonName="Value"></CommonButton>
-            <CommonButton ButtonName="Order Now"></CommonButton>
-            <CommonButton ButtonName="Add To Cart"></CommonButton>
+            <div className="flex border rounded-md justify-center items-center border-Primary_Color text-Primary_Color font-bold h-fit">
+              <div
+                className="border-r border-Primary_Color pr-2 cursor-pointer p-3"
+                onClick={DecreaseCartItem}
+              >
+                -
+              </div>
+              <div className="px-3">{totalOrderItems}</div>
+              <div
+                className="border-l border-Primary_Color pl-2 cursor-pointer p-3"
+                onClick={IncreaseCartItem}
+              >
+                +
+              </div>
+            </div>
+            <CommonButton
+              ButtonName="Order Now"
+              NavigateLink="/contact"
+            ></CommonButton>
+            <div onClick={() => AddToCart(dataForCart)}>
+              <CommonButton
+                ButtonName="Add To Cart"
+                NavigateLink="/cart"
+              ></CommonButton>
+            </div>
           </div>
         </div>
       </div>
