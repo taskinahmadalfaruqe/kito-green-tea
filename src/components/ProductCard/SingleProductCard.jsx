@@ -30,12 +30,24 @@ const SingleProductCard = ({ singleProduct }) => {
     location.reload();
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
+    const query = localStorageCard?.findIndex(
+      (value) => value.id === singleProduct.id
+    );
     if (!localStorageCard) {
       addCardInStorage.push(singleProduct);
       localStorage.setItem("items", JSON.stringify(addCardInStorage));
     } else {
-      addCardInStorage.push(...localStorageCard, singleProduct);
-      localStorage.setItem("items", JSON.stringify(addCardInStorage));
+      if (query !== -1) {
+        if (localStorageCard[query].totalOrderItems == 10) {
+          alert("Your Cart Is Already Reach Max Limit Of This Product");
+        } else {
+          localStorageCard[query].totalOrderItems += 1;
+          localStorage.setItem("items", JSON.stringify(localStorageCard));
+        }
+      } else {
+        addCardInStorage.push(...localStorageCard, singleProduct);
+        localStorage.setItem("items", JSON.stringify(addCardInStorage));
+      }
     }
   };
 
@@ -63,7 +75,7 @@ const SingleProductCard = ({ singleProduct }) => {
           ? productDetails
           : productDetails.slice(0, 60) + "......."}
       </div>
-      <div className="flex justify-between items-center gap-5">
+      <div className="flex justify-between items-center">
         <div onClick={() => AddToCart(dataForCart)} className="">
           <CommonButton
             ButtonName="Add To Cart"

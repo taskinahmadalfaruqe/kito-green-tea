@@ -8,7 +8,7 @@ const Cart = () => {
   };
   return (
     <div className="container py-10">
-      <div>
+      <div className="space-y-5">
         <div>
           <AllCartProductInTable></AllCartProductInTable>
         </div>

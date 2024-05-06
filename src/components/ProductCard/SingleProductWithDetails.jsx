@@ -54,12 +54,24 @@ const SingleProductWithDetails = () => {
     location.reload();
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
+    const query = localStorageCard.findIndex(
+      (value) => value.id === singleProduct.id
+    );
     if (!localStorageCard) {
       addCardInStorage.push(singleProduct);
       localStorage.setItem("items", JSON.stringify(addCardInStorage));
     } else {
-      addCardInStorage.push(...localStorageCard, singleProduct);
-      localStorage.setItem("items", JSON.stringify(addCardInStorage));
+      if (query !== -1) {
+        if (localStorageCard[query].totalOrderItems + totalOrderItems > 10) {
+          alert("Your Cart Is Already Reach Max Limit Of This Product");
+        } else {
+          localStorageCard[query].totalOrderItems += totalOrderItems;
+          localStorage.setItem("items", JSON.stringify(localStorageCard));
+        }
+      } else {
+        addCardInStorage.push(...localStorageCard, singleProduct);
+        localStorage.setItem("items", JSON.stringify(addCardInStorage));
+      }
     }
   };
 

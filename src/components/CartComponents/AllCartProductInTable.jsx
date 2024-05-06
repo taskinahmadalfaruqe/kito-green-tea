@@ -3,6 +3,7 @@ import LodeTable from "./LodeTable";
 
 const AllCartProductInTable = () => {
   const cartData = useLocalStorage();
+  const length = cartData?.length || 0;
   return (
     <div className="overflow-x-auto">
       <div className="">
@@ -24,27 +25,13 @@ const AllCartProductInTable = () => {
           </thead>
           <tbody>
             {cartData?.map((item, index) => (
-            //   <tr key={index} className="border border-Primary_Color">
-            //     <td className="border border-Primary_Color px-4 py-2">
-            //       {item.id}
-            //     </td>
-            //     <td className="border border-Primary_Color px-4 py-2">
-            //       {item.productName}
-            //     </td>
-            //     <td className="border border-Primary_Color px-4 py-2">
-            //       {item.totalOrderItems}
-            //     </td>
-            //     <td className="border border-Primary_Color px-4 py-2">
-            //       {item.discountPrice}
-            //     </td>
-            //     <td className="border border-Primary_Color px-4 py-2">
-            //       {item.totalOrderItems * item.discountPrice}
-            //     </td>
-            //   </tr>
-                <LodeTable key={index} item={item}></LodeTable>
+              <LodeTable key={index} item={item}></LodeTable>
             ))}
           </tbody>
         </table>
+        <div className=" text-center font-bold mt-10 text-3xl">
+          {length <= 0 ? "No Data Found" : ""}
+        </div>
       </div>
     </div>
   );

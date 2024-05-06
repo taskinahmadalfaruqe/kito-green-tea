@@ -1,11 +1,20 @@
 import PropTypes from "prop-types";
 import { MdDelete } from "react-icons/md";
+import useLocalStorage from "../../Hooks/useLocalStorage";
 
 const LodeTable = ({ item }) => {
+  const lodeCartData = useLocalStorage();
   const { id, productName, totalOrderItems, discountPrice } = item;
+
   const handelDelete = (id) => {
-    console.log(id);
+    const data = [];
+    lodeCartData?.map((value) => {
+      if (value.id != id) {
+        data.push(value);
+      }
+    });
   };
+
   const subtotal = (totalOrderItems * discountPrice).toFixed(2);
 
   return (
