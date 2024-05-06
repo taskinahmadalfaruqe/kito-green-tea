@@ -1,8 +1,8 @@
 const Footer = () => {
-    const year = new Date().getFullYear();
+  const year = new Date().getFullYear();
   return (
     <div>
-      <footer className="footer p-10 bg-green-400 text-base-content">
+      <footer className="footer p-10 bg-Primary_Color text-base-content">
         <aside>
           <svg
             width="50"
@@ -43,7 +43,7 @@ const Footer = () => {
         </nav>
       </footer>
       <hr className="w-fit" />
-      <footer className="footer footer-center p-4 bg-green-400 text-base-content">
+      <footer className="footer footer-center p-4 bg-Primary_Color text-base-content">
         <aside>
           <p>Copyright &copy; {year} - All right reserved by E-Shop BD</p>
         </aside>

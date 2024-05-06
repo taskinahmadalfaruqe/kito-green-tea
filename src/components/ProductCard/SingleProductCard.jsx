@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import CommonButton from "../../shared/CommonButton";
 
 const SingleProductCard = ({ singleProduct }) => {
-
   //object destructure for lode data and show on it web page,
   const {
     id,
@@ -28,6 +27,7 @@ const SingleProductCard = ({ singleProduct }) => {
 
   // make add to cart function and sate value in local storage.
   const AddToCart = (singleProduct) => {
+    location.reload();
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
     if (!localStorageCard) {

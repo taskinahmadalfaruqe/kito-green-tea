@@ -51,6 +51,7 @@ const SingleProductWithDetails = () => {
 
   // set add t cart data in local storage
   const AddToCart = (singleProduct) => {
+    location.reload();
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
     if (!localStorageCard) {
