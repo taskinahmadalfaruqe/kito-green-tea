@@ -1,16 +1,17 @@
 import { useEffect } from "react";
+import AllCartProductInTable from "../../components/CartComponents/AllCartProductInTable";
 
 const Cart = () => {
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, []);
   const updateCart = () => {
     location.reload();
   };
   return (
     <div className="container py-10">
       <div>
-        <div>items</div>
+        <div>
+          <AllCartProductInTable></AllCartProductInTable>
+        </div>
         <div>checkout details</div>
         <button onClick={updateCart}>Update Cart</button>
       </div>

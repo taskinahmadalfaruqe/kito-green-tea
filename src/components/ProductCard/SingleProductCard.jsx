@@ -63,7 +63,7 @@ const SingleProductCard = ({ singleProduct }) => {
           ? productDetails
           : productDetails.slice(0, 60) + "......."}
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-5">
         <div onClick={() => AddToCart(dataForCart)} className="">
           <CommonButton
             ButtonName="Add To Cart"
