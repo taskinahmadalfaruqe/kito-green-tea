@@ -121,7 +121,7 @@ const SingleProductWithDetails = () => {
             </div>
             <CommonButton
               ButtonName="Order Now"
-              NavigateLink="/contact"
+              NavigateLink={`/checkout/${id}`}
             ></CommonButton>
             <div onClick={() => AddToCart(dataForCart)}>
               <CommonButton

@@ -22,7 +22,9 @@ const Cart = () => {
         <div>
           <AllCartProductInTable subGrandTotalNumber={subGrandTotalNumber}></AllCartProductInTable>
         </div>
-        <div>checkout details</div>
+        <div>
+          order summery
+        </div>
         <button onClick={updateCart}>Update Cart</button>
       </div>
     </div>

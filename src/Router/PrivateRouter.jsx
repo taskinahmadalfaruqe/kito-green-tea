@@ -1,8 +1,7 @@
-
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-
+import PropTypes from "prop-types";
 
 const PrivateRoutes = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -21,6 +20,8 @@ const PrivateRoutes = ({ children }) => {
 
   return <Navigate to="/login" replace></Navigate>;
 };
+PrivateRoutes.propTypes = {
+  children: PropTypes.object.isRequired,
+};
 
 export default PrivateRoutes;
- 

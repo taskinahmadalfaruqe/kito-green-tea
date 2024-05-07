@@ -7,6 +7,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 import AllProductCard from "../components/ProductCard/AllProductCard";
 import SingleProductWithDetails from "../components/ProductCard/SingleProductWithDetails";
 import Cart from "../Pages/Cart/Cart";
+import Checkout from "../Pages/Checkout/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart></Cart>
+        element: <Cart></Cart>,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout></Checkout>,
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>,
       },
     ],
   },
