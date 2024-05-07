@@ -56,7 +56,7 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/">
-              <div className="flex justify-start items-center lg:gap-2 text-base lg:text-2xl  text-White_Color">
+              <div className="flex justify-start items-center md:gap-2 text-base lg:text-2xl  text-White_Color">
                 <img className="hidden md:flex w-16 h-12 rounded-2xl"
                   src={logo} alt="Logo" />
                   <span>E Shop BD</span>
