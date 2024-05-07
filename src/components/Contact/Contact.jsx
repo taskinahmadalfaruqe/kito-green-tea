@@ -25,7 +25,7 @@ const Contact = () => {
                     type="text"
                     id="fullName"
                     name="from_name"
-                    className="w-full border-gray-300 border p-2 rounded "
+                    className="w-full border-Primary_Color border p-2 rounded "
                     required
                   />
                 </div>
@@ -36,7 +36,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     id="contactNumber"
-                    className="w-full border-gray-300 border p-2 rounded"
+                    className="w-full border-Primary_Color border p-2 rounded"
                     required
                   />
                 </div>
@@ -48,7 +48,7 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="from_email"
-                    className="w-full border-gray-300 border p-2 rounded"
+                    className="w-full border-Primary_Color border p-2 rounded"
                     required
                   />
                 </div>
@@ -59,7 +59,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="subject"
-                    className="w-full border-gray-300 border p-2 rounded"
+                    className="w-full border-Primary_Color border p-2 rounded"
                     required
                   />
                 </div>
@@ -71,7 +71,7 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  className="w-full border-gray-300 border p-2 rounded"
+                  className="w-full border-Primary_Color border p-2 rounded"
                   rows="5"
                   required
                 ></textarea>
@@ -86,16 +86,20 @@ const Contact = () => {
           </Slide>
           <Slide direction="left">
             <div>
-              <div className="block max-w-sm p-6  border border-gray-200 rounded-lg shadow hover:bg-gray-700 hover:text-white">
+              <div className="block max-w-sm p-6  border border-Primary_Color rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight ">
                   GET IN TOUCH
                 </h5>
                 <p className="font-normal ">
-                আমাদের পণ্যগুলো ব্যবহার করুন এবং অর্ডার করতে যোগাযোগ করুন আমাদের  What's app  নাম্বারে অথবা ইমেইলের মাধ্যমে । আপনার মূল্যবান মতামতটি দাখিল করুন। কোন অভিযোগ থাকলে আমাদেরকে জানান। আমরা আপনার যেকোনো সমস্যার সমাধান দেওয়ার জন্য সর্বদা প্রস্তুত আছি । ধন্যবাদ আমাদের সাথে থাকার জন্য।
+                  আমাদের পণ্যগুলো ব্যবহার করুন এবং অর্ডার করতে যোগাযোগ করুন
+                  আমাদের Whatsapp নাম্বারে অথবা ইমেইলের মাধ্যমে । আপনার মূল্যবান
+                  মতামতটি দাখিল করুন। কোন অভিযোগ থাকলে আমাদেরকে জানান। আমরা
+                  আপনার যেকোনো সমস্যার সমাধান দেওয়ার জন্য সর্বদা প্রস্তুত আছি ।
+                  ধন্যবাদ আমাদের সাথে থাকার জন্য।
                 </p>
                 <div className="flex gap-2 items-center pb-2">
                   <p>
-                    <MdMarkEmailRead className="text-[#4ADE80] h-12 w-12" />
+                    <MdMarkEmailRead className="text-Primary_Color h-12 w-12" />
                   </p>
                   <div className="flex-col">
                     <p className="font-semibold pb-1">Mail me</p>
@@ -104,7 +108,7 @@ const Contact = () => {
                 </div>
                 <div className="flex gap-2 items-center">
                   <p>
-                    <FaWhatsapp className="text-[#4ADE80] h-12 w-12" />
+                    <FaWhatsapp className="text-Primary_Color h-12 w-12" />
                   </p>
                   <div className="flex-col">
                     <p className="font-semibold pb-1 "> WhatsApp || Phone</p>
