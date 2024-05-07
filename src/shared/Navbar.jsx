@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
+import logo from "../assets/eshopbdlogo.png"
 
 const Navbar = () => {
   const localStorageCard = JSON.parse(localStorage.getItem("items"));
@@ -54,7 +55,13 @@ const Navbar = () => {
                 {NavItems}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">E-Shop bd</a>
+            <Link to="/">
+              <div className="flex">
+                <img className="invisible md:visible w-16 h-12 rounded-2xl"
+                  src={logo} alt="Logo" />
+                <a className="btn btn-ghost text-xl">E-ShopBD</a>
+              </div>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{NavItems}</ul>

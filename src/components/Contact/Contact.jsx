@@ -91,13 +91,7 @@ const Contact = () => {
                   GET IN TOUCH
                 </h5>
                 <p className="font-normal ">
-                  DO NOT BE SHY. I appreciate your openness to collaboration and
-                  discussion. If you have any new projects, creative ideas,
-                  opportunities that align with my expertise, I would be
-                  delighted to explore them further with you. Together, we can
-                  work towards bringing your visions to life and achieving great
-                  results. Please feel free to reach out to me anytime; I am
-                  always here to listen and contribute to meaningful endeavors..
+                আমাদের পণ্যগুলো ব্যবহার করুন এবং অর্ডার করতে যোগাযোগ করুন আমাদের  What's app  নাম্বারে অথবা ইমেইলের মাধ্যমে । আপনার মূল্যবান মতামতটি দাখিল করুন। কোন অভিযোগ থাকলে আমাদেরকে জানান। আমরা আপনার যেকোনো সমস্যার সমাধান দেওয়ার জন্য সর্বদা প্রস্তুত আছি । ধন্যবাদ আমাদের সাথে থাকার জন্য।
                 </p>
                 <div className="flex gap-2 items-center pb-2">
                   <p>
