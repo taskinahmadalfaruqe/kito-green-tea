@@ -3,6 +3,7 @@ import { MdMarkEmailRead } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 import CommonButton from "../../shared/CommonButton";
 import SectionTitle from "../../shared/SectionTitle";
+import { FaFacebook } from "react-icons/fa6";
 
 const Contact = () => {
   return (
@@ -99,20 +100,29 @@ const Contact = () => {
                 </p>
                 <div className="flex gap-2 items-center pb-2">
                   <p>
-                    <MdMarkEmailRead className="text-Primary_Color h-12 w-12" />
+                    <MdMarkEmailRead className="text-[#4ADE80] h-12 w-12" />
                   </p>
                   <div className="flex-col">
-                    <p className="font-semibold pb-1">Mail me</p>
-                    <p>developer@gmail.com</p>
+                    <p className="font-semibold pb-1">Mail </p>
+                    <p>eshopsbds@gmail.com</p>
+                  </div>
+                </div>
+                <div className="flex gap-2 items-center pb-2">
+                  <a href="https://www.facebook.com/Eshopbds" target="_blank">
+                    <FaFacebook className="text-[#0866ff] h-12 w-12" />
+                  </a>
+                  <div className="flex-col">
+                    <p className="font-semibold pb-1">FaceBook </p>
+                    <p>www.facebook.com/Eshopbds</p>
                   </div>
                 </div>
                 <div className="flex gap-2 items-center">
                   <p>
-                    <FaWhatsapp className="text-Primary_Color h-12 w-12" />
+                    <FaWhatsapp className="text-[#4ADE80] h-12 w-12" />
                   </p>
                   <div className="flex-col">
                     <p className="font-semibold pb-1 "> WhatsApp || Phone</p>
-                    <p>+8801567829745</p>
+                    <p>+8801538226662</p>
                   </div>
                 </div>
               </div>
