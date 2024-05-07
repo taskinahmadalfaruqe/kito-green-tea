@@ -35,31 +35,31 @@ const Banner = () => {
                     >
                         <SwiperSlide className="md:h-[100px]">
                             <div>
-                                <img src="https://i.ibb.co/t8vyGhV/1711907352305.png" alt="" />
+                                <img src="https://i.ibb.co/RhyVzS5/Add-a-little-bit-of-body-text.jpg" alt="" />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
                             <div>
-                                <img src="https://i.ibb.co/MM0sQQR/1711907352362.png" alt="" />
+                                <img src="https://i.ibb.co/WBMGNLr/Run-your-company-with-ease.jpg" alt="" />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
                             <div>
-                                <img src="https://i.ibb.co/Pm1Nw3w/1711907352258.png" alt="" />
+                                <img src="https://i.ibb.co/pnXDkCK/Beige-Gray-Aesthetic-Photo-Collage-Shop-New-Collection-Promotion-Banner.jpg" alt="" />
                             </div>
                         </SwiperSlide>
-                        {/* <SwiperSlide>
+                         <SwiperSlide>
                             <div>
-                                <img src="https://i.ibb.co/tQFtdzg/selective-focus-shot-two-cute-friendly-dogs-sitting-each-other-nature.jpg" alt="" />
+                                <img src="https://i.ibb.co/sqzfTqw/Beige-Black-Modern-Photo-Collage-Summer-New-Collection-Banner.jpg" alt="" />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
                             <div>
-                                <img src="https://i.ibb.co/kKcnSYb/portrait-white-rabbit-playing-green-grass.jpg" alt="" />
+                                <img src="https://i.ibb.co/SRw4R2n/Simple-Modern-Photo-Collage-Autumn-Fashion-Sale-Banner.jpg" alt="" />
                             </div>
                         </SwiperSlide>
 
-                        <SwiperSlide>
+                        {/*<SwiperSlide>
                             <div>
                                 <img src="https://i.ibb.co/cDd0L25/2150782303-1.jpg" alt="" />
                             </div>
