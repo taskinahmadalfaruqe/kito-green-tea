@@ -1,7 +1,8 @@
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import LodeTable from "./LodeTable";
+import PropTypes from "prop-types";
 
-const AllCartProductInTable = () => {
+const AllCartProductInTable = ({ subGrandTotalNumber }) => {
   const cartData = useLocalStorage();
   const length = cartData?.length || 0;
   return (
@@ -27,6 +28,12 @@ const AllCartProductInTable = () => {
             {cartData?.map((item, index) => (
               <LodeTable key={index} item={item}></LodeTable>
             ))}
+            <tr className="border border-Primary_Color">
+              <td colSpan={4} className="border border-Primary_Color">
+                Sub Grand Total:
+              </td>
+              <td className="border border-Primary_Color">{subGrandTotalNumber}</td>
+            </tr>
           </tbody>
         </table>
         <div className=" text-center font-bold mt-10 text-3xl">
@@ -36,5 +43,7 @@ const AllCartProductInTable = () => {
     </div>
   );
 };
-
+AllCartProductInTable.propTypes = {
+  subGrandTotalNumber: PropTypes.number,
+};
 export default AllCartProductInTable;

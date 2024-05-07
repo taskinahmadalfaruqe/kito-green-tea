@@ -1,8 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AllCartProductInTable from "../../components/CartComponents/AllCartProductInTable";
+import useLocalStorage from "../../Hooks/useLocalStorage";
 
 const Cart = () => {
-  useEffect(() => {}, []);
+  const cartData = useLocalStorage();
+  let [subGrandTotal, setSubGrandTotal] = useState(0);
+  const subGrandTotalNumber = parseFloat(subGrandTotal);
+  useEffect(() => {
+    let total = 0;
+    cartData.forEach((item) => {
+      total += item.totalOrderItems * item.discountPrice;
+    });
+    setSubGrandTotal(total.toFixed(2));
+  }, [cartData]);
   const updateCart = () => {
     location.reload();
   };
@@ -10,7 +20,7 @@ const Cart = () => {
     <div className="container py-10">
       <div className="space-y-5">
         <div>
-          <AllCartProductInTable></AllCartProductInTable>
+          <AllCartProductInTable subGrandTotalNumber={subGrandTotalNumber}></AllCartProductInTable>
         </div>
         <div>checkout details</div>
         <button onClick={updateCart}>Update Cart</button>
