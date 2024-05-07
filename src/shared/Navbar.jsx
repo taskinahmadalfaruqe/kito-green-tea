@@ -56,10 +56,10 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/">
-              <div className="flex">
+              <div className="flex justify-start items-center gap-2 text-2xl font-bold text-White_Color">
                 <img className="invisible md:visible w-16 h-12 rounded-2xl"
                   src={logo} alt="Logo" />
-                <a className="btn btn-ghost text-xl">E-ShopBD</a>
+                  <span>E-Shop BD</span>
               </div>
             </Link>
           </div>
