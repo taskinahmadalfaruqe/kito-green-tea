@@ -20,6 +20,9 @@ const Navbar = () => {
       <li className="font-semibold">
         <Link to="/contact">CONTACT US</Link>
       </li>
+      <li className="font-semibold">
+        <Link to="/dashboard">DASHBOARD</Link>
+      </li>
     </>
   );
   return (

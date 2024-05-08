@@ -10,7 +10,7 @@ const Footer = () => {
         <aside>
           <img className="w-20 h-12 rounded-xl" src={logo} alt="Logo" />
           <p className="font-semibold lg:text-xl">
-            E-ShopBD
+            E-Shop BD
             <br />
             Providing reliable tech since 2024
           </p>
