@@ -37,12 +37,8 @@ const SingleProductCard = ({ singleProduct }) => {
       localStorage.setItem("items", JSON.stringify(addCardInStorage));
     } else {
       if (query !== -1) {
-        if (localStorageCard[query].totalOrderItems == 10) {
-          alert("Your Cart Is Already Reach Max Limit Of This Product");
-        } else {
-          localStorageCard[query].totalOrderItems += 1;
-          localStorage.setItem("items", JSON.stringify(localStorageCard));
-        }
+        localStorageCard[query].totalOrderItems += 1;
+        localStorage.setItem("items", JSON.stringify(localStorageCard));
       } else {
         addCardInStorage.push(...localStorageCard, singleProduct);
         localStorage.setItem("items", JSON.stringify(addCardInStorage));

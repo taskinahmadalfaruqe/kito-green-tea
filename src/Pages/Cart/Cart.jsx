@@ -4,7 +4,10 @@ import useLocalStorage from "../../Hooks/useLocalStorage";
 import CommonButton from "../../shared/CommonButton";
 
 const Cart = () => {
+  // fetch local storage data
   const cartData = useLocalStorage();
+
+  // set total amount
   let [subGrandTotal, setSubGrandTotal] = useState(0);
   const subGrandTotalNumber = parseFloat(subGrandTotal);
   useEffect(() => {
@@ -14,9 +17,7 @@ const Cart = () => {
     });
     setSubGrandTotal(total.toFixed(2));
   }, [cartData]);
-  const updateCart = () => {
-    location.reload();
-  };
+
   return (
     <div className="container py-10">
       <div className="space-y-5">
@@ -26,19 +27,12 @@ const Cart = () => {
           ></AllCartProductInTable>
         </div>
       </div>
-      <div className="flex justify-between items-center gap-10 mt-10">
-        <div onClick={updateCart}>
-          <CommonButton
-            ButtonName="Update Cart"
-            NavigateLink="/cart"
-          ></CommonButton>
-        </div>
-        <div>
-          <CommonButton
-            ButtonName="Buy Now"
-            NavigateLink="/checkout"
-          ></CommonButton>
-        </div>
+
+      <div className="flex justify-end items-center gap-10 mt-10">
+        <CommonButton
+          ButtonName="Buy Now"
+          NavigateLink="/checkout"
+        ></CommonButton>
       </div>
     </div>
   );

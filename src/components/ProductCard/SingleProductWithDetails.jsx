@@ -28,9 +28,7 @@ const SingleProductWithDetails = () => {
   // declare a useState function to manage total number of items
   const [totalOrderItems, setTotalOrderItems] = useState(1);
   const IncreaseCartItem = () => {
-    if (totalOrderItems < 10) {
-      setTotalOrderItems((prevItems) => prevItems + 1);
-    }
+    setTotalOrderItems((prevItems) => prevItems + 1);
   };
   const DecreaseCartItem = () => {
     if (totalOrderItems > 1) {
@@ -61,12 +59,8 @@ const SingleProductWithDetails = () => {
       localStorage.setItem("items", JSON.stringify(addCardInStorage));
     } else {
       if (query !== -1) {
-        if (localStorageCard[query].totalOrderItems + totalOrderItems > 10) {
-          alert("Your Cart Is Already Reach Max Limit Of This Product");
-        } else {
-          localStorageCard[query].totalOrderItems += totalOrderItems;
-          localStorage.setItem("items", JSON.stringify(localStorageCard));
-        }
+        localStorageCard[query].totalOrderItems += totalOrderItems;
+        localStorage.setItem("items", JSON.stringify(localStorageCard));
       } else {
         addCardInStorage.push(...localStorageCard, singleProduct);
         localStorage.setItem("items", JSON.stringify(addCardInStorage));

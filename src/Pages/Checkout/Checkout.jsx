@@ -2,9 +2,13 @@ import { useState } from "react";
 import CommonButton from "../../shared/CommonButton";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import OrderSummery from "../../components/CheckouteComponents/OrderSummery";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const data = useLocalStorage();
+  const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [district, setDistrict] = useState("");
   const [thana, setThana] = useState("");
@@ -18,8 +22,36 @@ const Checkout = () => {
       accumulator + currentValue.totalOrderItems * currentValue.discountPrice
     );
   }, 0);
+  const totalCost = (Number(total) + Number(deliveryCost)).toFixed(2);
+  const Order = {
+    data,
+    totalCost,
+    userName,
+    district,
+    thana,
+    village,
+    note,
+    PhoneNumber,
+  };
 
-  const totalCost = Number(total) + Number(deliveryCost);
+  const HandelOrder = (orderData) => {
+    if (
+      userName.length == 0 ||
+      district.length == 0 ||
+      thana.length == 0 ||
+      village.length == 0 ||
+      PhoneNumber.length == 0
+    ) {
+      toast.error("Enter Information Properly", {
+        position: "top-center",
+        autoClose: 15000,
+        theme: "colored",
+      });
+    } else {
+      console.log(orderData);
+      navigate("/");
+    }
+  };
 
   return (
     <div className="container space-y-5 mb-10">
@@ -129,56 +161,69 @@ const Checkout = () => {
             <div className="space-y-5">
               <div className="flex justify-between items-center text-2xl font-semibold">
                 <div>Sub Total:</div>
-                <div>{total}</div>
+                <div>{total.toFixed(2)}</div>
               </div>
               <div>
                 <form>
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      id="dhaka"
-                      name="deliveryLocation"
-                      value={120}
-                      onChange={(event) => setDeliveryCost(event.target.value)}
-                      required
-                      className="h-5 w-5 text-Primary_Color focus:ring-Primary_Color border-Primary_Color rounded"
-                    />
-                    <label
-                      htmlFor="dhaka"
-                      className="text-Primary_Color cursor-pointer font-semibold text-xl"
-                    >
-                      Dhaka: 120
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      id="outsideDhaka"
-                      name="deliveryLocation"
-                      value={150}
-                      onChange={(event) => setDeliveryCost(event.target.value)}
-                      className="h-5 w-5 text-Primary_Color focus:ring-Primary_Color border-Primary_Color rounded"
-                    />
-                    <label
-                      htmlFor="outsideDhaka"
-                      className="text-Primary_Color cursor-pointer font-semibold text-xl"
-                    >
-                      Anywhere BD: 150
-                    </label>
-                  </div>
+                  <fieldset className="border border-Primary_Color rounded-md p-5">
+                    <legend className="px-2 text-Primary_Color font-semibold text-xl">
+                      Select Delivery Address
+                    </legend>
+                    <div className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        id="dhaka"
+                        name="deliveryLocation"
+                        value={120}
+                        onChange={(event) =>
+                          setDeliveryCost(event.target.value)
+                        }
+                        required
+                        className="h-5 w-5 text-Primary_Color focus:ring-Primary_Color border-Primary_Color rounded"
+                      />
+                      <label
+                        htmlFor="dhaka"
+                        className="text-Primary_Color cursor-pointer font-semibold text-xl"
+                      >
+                        Dhaka: 120
+                      </label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        id="outsideDhaka"
+                        name="deliveryLocation"
+                        value={150}
+                        onChange={(event) =>
+                          setDeliveryCost(event.target.value)
+                        }
+                        className="h-5 w-5 text-Primary_Color focus:ring-Primary_Color border-Primary_Color rounded"
+                      />
+                      <label
+                        htmlFor="outsideDhaka"
+                        className="text-Primary_Color cursor-pointer font-semibold text-xl"
+                      >
+                        Anywhere BD: 150
+                      </label>
+                    </div>
+                  </fieldset>
                 </form>
               </div>
               <div className="flex justify-between items-center text-xl md:text-2xl font-semibold">
-                <div>Total(with Delivery): TK-</div>
+                <div>Total(with Delivery):</div>
                 <div>{totalCost}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="">
-        <CommonButton ButtonName="Place Order" NavigateLink="/"></CommonButton>
+      <div className="" onClick={() => HandelOrder(Order)}>
+        <CommonButton
+          ButtonName="Place Order"
+          NavigateLink="/checkout"
+        ></CommonButton>
       </div>
+      <ToastContainer />
     </div>
   );
 };
