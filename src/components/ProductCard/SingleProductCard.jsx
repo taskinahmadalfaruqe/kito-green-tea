@@ -27,7 +27,6 @@ const SingleProductCard = ({ singleProduct }) => {
 
   // make add to cart function and sate value in local storage.
   const AddToCart = (singleProduct) => {
-    location.reload();
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
     const query = localStorageCard?.findIndex(
@@ -49,10 +48,11 @@ const SingleProductCard = ({ singleProduct }) => {
         localStorage.setItem("items", JSON.stringify(addCardInStorage));
       }
     }
+    location.reload();
   };
 
   return (
-    <div className=" shadow-xl rounded-lg p-8 space-y-3 flex justify-between flex-col border-2">
+    <div className=" shadow-xl rounded-lg p-5  space-y-3 flex justify-between flex-col border-2">
       <div className="flex justify-center items-center max-h-80">
         <img src={image} alt="Image" />
       </div>
@@ -75,7 +75,7 @@ const SingleProductCard = ({ singleProduct }) => {
           ? productDetails
           : productDetails.slice(0, 60) + "......."}
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-5">
         <div onClick={() => AddToCart(dataForCart)} className="">
           <CommonButton
             ButtonName="Add To Cart"

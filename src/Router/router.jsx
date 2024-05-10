@@ -53,10 +53,6 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <DashboardLayout/>,
       },
-      {
-        path: "/checkout/:id",
-        element: <Checkout></Checkout>,
-      },
     ],
   },
   {

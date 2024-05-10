@@ -7,12 +7,14 @@ const LodeTable = ({ item }) => {
   const { id, productName, totalOrderItems, discountPrice } = item;
 
   const handelDelete = (id) => {
-    const data = [];
+    const addCardInStorage = [];
     lodeCartData?.map((value) => {
       if (value.id != id) {
-        data.push(value);
+        addCardInStorage.push(value);
       }
     });
+    localStorage.setItem("items", JSON.stringify(addCardInStorage));
+    location.reload();
   };
 
   const subtotal = (totalOrderItems * discountPrice).toFixed(2);

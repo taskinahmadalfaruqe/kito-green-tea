@@ -1,30 +1,71 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
-import logo from "../assets/eshopbdlogo.png"
+import logo from "../assets/eshopbdlogo.png";
 
 const Navbar = () => {
   const localStorageCard = JSON.parse(localStorage.getItem("items"));
   const TotalCardItems = localStorageCard ? localStorageCard.length : 0;
 
   const NavItems = (
-    <>
-      <li className="font-semibold">
-        <Link to="/">HOME</Link>
-      </li>
-      <li className="font-semibold">
-        <Link to="/products">PRODUCTS</Link>
-      </li>
-      <li className="font-semibold">
-        <Link to="/about">ABOUT US</Link>
-      </li>
-      <li className="font-semibold">
-        <Link to="/contact">CONTACT US</Link>
-      </li>
-      <li className="font-semibold">
-        <Link to="/dashboard">DASHBOARD</Link>
-      </li>
-    </>
+    <div className="flex flex-col gap-1 lg:flex-row justify-start lg:justify-center lg:items-center font-semibold  uppercase text-base">
+      <NavLink
+        to={"/"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to={"/products"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        Products
+      </NavLink>
+
+      <NavLink
+        to={"/about"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        About US
+      </NavLink>
+
+      <NavLink
+        to={"/contact"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        Contact US
+      </NavLink>
+
+      <NavLink
+        to={"/dashboard"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        Dashboard
+      </NavLink>
+
+    </div>
   );
+  
   return (
     <div>
       <div className=" bg-Primary_Color">
@@ -60,9 +101,12 @@ const Navbar = () => {
             </div>
             <Link to="/">
               <div className="flex justify-start items-center md:gap-2 text-base lg:text-2xl  text-White_Color">
-                <img className="hidden md:flex w-16 h-12 rounded-2xl"
-                  src={logo} alt="Logo" />
-                  <span>E Shop BD</span>
+                <img
+                  className="hidden md:flex w-16 h-12 rounded-2xl"
+                  src={logo}
+                  alt="Logo"
+                />
+                <span>E Shop BD</span>
               </div>
             </Link>
           </div>
@@ -73,7 +117,7 @@ const Navbar = () => {
             <Link to={"/cart"} className="btn px-6">
               <FaCartShopping className="text-2xl font-bold text-Yellow_Color"></FaCartShopping>
             </Link>
-            <p className="h-7 w-7 rounded-full p-1 bg-Yellow_Color flex justify-center items-center font-Roboto font-semibold text-White_Color absolute -top-2 -right-2 text-xl">
+            <p className="h-7 w-7 rounded-full p-1 bg-Yellow_Color flex justify-center items-center font-Roboto  text-White_Color absolute -top-2 -right-2 text-xl">
               {TotalCardItems}
             </p>
           </div>

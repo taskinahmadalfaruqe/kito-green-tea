@@ -51,10 +51,9 @@ const SingleProductWithDetails = () => {
 
   // set add t cart data in local storage
   const AddToCart = (singleProduct) => {
-    location.reload();
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
-    const query = localStorageCard.findIndex(
+    const query = localStorageCard?.findIndex(
       (value) => value.id === singleProduct.id
     );
     if (!localStorageCard) {
@@ -73,18 +72,19 @@ const SingleProductWithDetails = () => {
         localStorage.setItem("items", JSON.stringify(addCardInStorage));
       }
     }
+    location.reload();
   };
 
   return (
     <div className="container py-5">
-      <div className="flex gap-5 w-[100%]">
+      <div className="flex gap-5 w-[100%] flex-col lg:flex-row">
         <div className="min-h-96 p-5 rounded-md flex items-center justify-center min-w-[40%]">
           <img src={image} alt="ImageProduct" />
         </div>
-        <div className="min-w-[60%] rounded-md p-5 space-y-10">
+        <div className="min-w-[60%] rounded-md p-0 md:p-5 space-y-5 lg:space-y-10">
           <div className="font-semibold text-3xl">{productName}</div>
           <div className="font-semibold">Category: {productCategory}</div>
-          <div className="flex justify-between items-center text-xl font-semibold">
+          <div className="flex flex-col md:flex-row justify-between md:items-center text-xl font-semibold gap-5 items-start">
             <div className="flex justify-start items-center">
               Regular Price:
               <span className="line-through text-Yellow_Color px-2">
@@ -103,7 +103,7 @@ const SingleProductWithDetails = () => {
             <div>{productDetails}</div>
           </div>
 
-          <div className="flex justify-between gap-5">
+          <div className="flex justify-between gap-1">
             <div className="flex border rounded-md justify-center items-center border-Primary_Color text-Primary_Color font-bold h-fit">
               <div
                 className="border-r border-Primary_Color pr-2 cursor-pointer p-3"
@@ -119,10 +119,12 @@ const SingleProductWithDetails = () => {
                 +
               </div>
             </div>
-            <CommonButton
-              ButtonName="Order Now"
-              NavigateLink={`/checkout/${id}`}
-            ></CommonButton>
+            <div onClick={() => AddToCart(dataForCart)}>
+              <CommonButton
+                ButtonName="Order Now"
+                NavigateLink="/checkout"
+              ></CommonButton>
+            </div>
             <div onClick={() => AddToCart(dataForCart)}>
               <CommonButton
                 ButtonName="Add To Cart"
@@ -132,7 +134,6 @@ const SingleProductWithDetails = () => {
           </div>
         </div>
       </div>
-      <div>Review Section</div>
     </div>
   );
 };
