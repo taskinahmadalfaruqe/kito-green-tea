@@ -44,6 +44,6 @@ const AllCartProductInTable = ({ subGrandTotalNumber }) => {
   );
 };
 AllCartProductInTable.propTypes = {
-  subGrandTotalNumber: PropTypes.number,
+  subGrandTotalNumber: PropTypes.string,
 };
 export default AllCartProductInTable;

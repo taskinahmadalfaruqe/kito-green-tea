@@ -9,7 +9,7 @@ const Cart = () => {
 
   // set total amount
   let [subGrandTotal, setSubGrandTotal] = useState(0);
-  const subGrandTotalNumber = parseFloat(subGrandTotal);
+  const subGrandTotalNumber = (parseFloat(subGrandTotal)).toFixed(2);
   useEffect(() => {
     let total = 0;
     cartData?.forEach((item) => {
