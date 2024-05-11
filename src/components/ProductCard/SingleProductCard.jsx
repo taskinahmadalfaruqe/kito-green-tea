@@ -49,7 +49,7 @@ const SingleProductCard = ({ singleProduct }) => {
 
   return (
     <div className=" shadow-xl rounded-lg p-5  space-y-3 flex justify-between flex-col border-2">
-      <div className="flex justify-center items-center h-80 overflow-hidden bg-red-500">
+      <div className="flex justify-center items-center h-80 overflow-hidden">
         <img src={image} alt="Image" className="max-h-[280px] w-[200px]" />
       </div>
       <div className="font-semibold text-xl pt-5">{productName}</div>
