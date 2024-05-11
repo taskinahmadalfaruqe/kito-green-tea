@@ -30,7 +30,7 @@ const AllCartProductInTable = ({ subGrandTotalNumber }) => {
             ))}
             <tr className="border border-Primary_Color">
               <td colSpan={4} className="border border-Primary_Color">
-                Sub Grand Total:
+                Sub Total:
               </td>
               <td className="border border-Primary_Color">{subGrandTotalNumber}</td>
             </tr>
