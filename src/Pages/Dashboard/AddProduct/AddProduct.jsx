@@ -49,13 +49,12 @@ const AddProduct = () => {
         .then((data) => {
           const ID = data.result.insertedId;
           if (data.result.acknowledged) {
-            toast.success(`Successfully order Placed. insertID:${ID}`, {
+            toast.success(`Successfully Product Add. insertID:${ID}`, {
               position: "top-center",
               autoClose: 15000,
               theme: "colored",
             });
             setTimeout(() => {
-              window.scrollTo(0, 0);
               navigate("/dashboard");
               location.reload();
             }, 15000);
@@ -107,7 +106,7 @@ const AddProduct = () => {
                 Regular Price
               </legend>
               <input
-                type="text"
+                type="number"
                 name="regularPrice"
                 required
                 onChange={(e) => SetRegularPrice(e.target.value)}
@@ -121,7 +120,7 @@ const AddProduct = () => {
                 Discount Price
               </legend>
               <input
-                type="text"
+                type="number"
                 name="discountPrice"
                 required
                 onChange={(e) => setDiscountPrice(e.target.value)}

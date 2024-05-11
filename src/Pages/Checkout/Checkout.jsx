@@ -32,6 +32,7 @@ const Checkout = () => {
     village,
     note,
     PhoneNumber,
+    status: "pending",
   };
 
   const HandelOrder = (orderData) => {

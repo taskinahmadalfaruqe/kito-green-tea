@@ -9,7 +9,7 @@ const SingleProductWithDetails = () => {
   const [findData, setFindData] = useState({});
 
   useEffect(() => {
-    const filterData = loadSingleProduct.find((val) => val.id == id);
+    const filterData = loadSingleProduct.find((val) => val._id == id);
     if (filterData) {
       setFindData(filterData);
     }
@@ -17,6 +17,7 @@ const SingleProductWithDetails = () => {
 
   //Object destructure for find all value;
   const {
+    _id,
     image,
     discountPrice,
     productCategory,
@@ -38,7 +39,7 @@ const SingleProductWithDetails = () => {
 
   const dataForCart = {
     totalOrderItems,
-    id,
+    _id,
     image,
     discountPrice,
     productCategory,
@@ -52,7 +53,7 @@ const SingleProductWithDetails = () => {
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
     const query = localStorageCard?.findIndex(
-      (value) => value.id === singleProduct.id
+      (value) => value._id === singleProduct._id
     );
     if (!localStorageCard) {
       addCardInStorage.push(singleProduct);

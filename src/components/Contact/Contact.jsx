@@ -5,8 +5,50 @@ import CommonButton from "../../shared/CommonButton";
 import SectionTitle from "../../shared/SectionTitle";
 import { FaFacebook } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailSubject, setEmailSubject] = useState("");
+  const [comment, setComment] = useState("");
+  const queryData = {
+    name,
+    number,
+    email,
+    emailSubject,
+    comment,
+    status: "pending",
+  };
+  const handelSubmit = (contactData) => {
+    fetch("http://localhost:5000/pendingContact", {
+      method: "POST",
+      body: JSON.stringify(contactData),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          const ID = data.insertedId;
+          if (data.acknowledged) {
+            toast.success(`Successfully Submitted. insertedId: ${ID}`, {
+              position: "top-center",
+              autoClose: 5000,
+              theme: "colored",
+            });
+            setTimeout(() => {
+              window.scrollTo(0, 0);
+              location.reload();
+            }, 5000);
+          }
+        }
+      });
+  };
   return (
     <Fade>
       <div className="container mb-10">
@@ -27,6 +69,7 @@ const Contact = () => {
                     type="text"
                     id="fullName"
                     name="from_name"
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full border-Primary_Color border p-2 rounded "
                     required
                   />
@@ -36,8 +79,9 @@ const Contact = () => {
                     Number
                   </label>
                   <input
-                    type="tel"
+                    type="number"
                     id="contactNumber"
+                    onChange={(e) => setNumber(e.target.value)}
                     className="w-full border-Primary_Color border p-2 rounded"
                     required
                   />
@@ -48,6 +92,7 @@ const Contact = () => {
                   <label className="block mb-2 ">Email</label>
                   <input
                     type="email"
+                    onChange={(e) => setEmail(e.target.value)}
                     id="email"
                     name="from_email"
                     className="w-full border-Primary_Color border p-2 rounded"
@@ -61,6 +106,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="subject"
+                    onChange={(e) => setEmailSubject(e.target.value)}
                     className="w-full border-Primary_Color border p-2 rounded"
                     required
                   />
@@ -73,12 +119,16 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
+                  onChange={(e) => setComment(e.target.value)}
                   className="w-full border-Primary_Color border p-2 rounded"
                   rows="5"
                   required
                 ></textarea>
               </div>
-              <div className="text-center">
+              <div
+                className="text-center"
+                onClick={() => handelSubmit(queryData)}
+              >
                 <CommonButton
                   ButtonName="Submit"
                   NavigateLink="/"
@@ -141,17 +191,9 @@ const Contact = () => {
           </Slide>
         </div>
       </div>
+      <ToastContainer />
     </Fade>
   );
 };
 
 export default Contact;
-{
-  /* <a href="https://wa.me/8801538226662" target="_blank">
-                    <FaWhatsapp className="text-[#4ADE80] h-12 w-12" />
-                  </a>
-                  <div className="flex-col cursor-pointer">
-                    <p className="font-semibold pb-1 "> WhatsApp || Phone</p>
-                    <p>+8801538226662</p>
-                  </div> */
-}

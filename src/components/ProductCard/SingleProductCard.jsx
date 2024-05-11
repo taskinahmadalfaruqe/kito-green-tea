@@ -4,7 +4,7 @@ import CommonButton from "../../shared/CommonButton";
 const SingleProductCard = ({ singleProduct }) => {
   //object destructure for lode data and show on it web page,
   const {
-    id,
+    _id,
     image,
     discountPrice,
     productCategory,
@@ -16,7 +16,7 @@ const SingleProductCard = ({ singleProduct }) => {
   //this data will set in local storage
   const dataForCart = {
     totalOrderItems: 1,
-    id,
+    _id,
     image,
     discountPrice,
     productCategory,
@@ -30,7 +30,7 @@ const SingleProductCard = ({ singleProduct }) => {
     const addCardInStorage = [];
     const localStorageCard = JSON.parse(localStorage.getItem("items"));
     const query = localStorageCard?.findIndex(
-      (value) => value.id === singleProduct.id
+      (value) => value._id === singleProduct._id
     );
     if (!localStorageCard) {
       addCardInStorage.push(singleProduct);
@@ -81,7 +81,7 @@ const SingleProductCard = ({ singleProduct }) => {
 
         <CommonButton
           ButtonName="See Details"
-          NavigateLink={`/products/${id}`}
+          NavigateLink={`/products/${_id}`}
         ></CommonButton>
       </div>
     </div>

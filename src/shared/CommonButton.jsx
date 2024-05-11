@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const CommonButton = ({ ButtonName, NavigateLink }) => {
-  window.scroll(0, 0);
   return (
     <div>
       <button type="submit">

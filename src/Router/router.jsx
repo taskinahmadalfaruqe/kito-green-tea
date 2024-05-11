@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../MainLayout/MainLayout";
+import MainLayout from "../Layoute/MainLayout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Contact from "../components/Contact/Contact";
 import About from "../Pages/About/About";
@@ -8,12 +8,12 @@ import AllProductCard from "../components/ProductCard/AllProductCard";
 import SingleProductWithDetails from "../components/ProductCard/SingleProductWithDetails";
 import Cart from "../Pages/Cart/Cart";
 import Checkout from "../Pages/Checkout/Checkout";
-import DashboardLayout from "../DashBoardLayout/DashboardLayout";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import OrderList from "../Pages/Dashboard/OrderList/OrderList";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
-import UpdateProduct from './../Pages/Dashboard/UpdateProduct/UpdateProduct';
+import UpdateProduct from "./../Pages/Dashboard/UpdateProduct/UpdateProduct";
 import ContactInformattion from "../Pages/Dashboard/ContactInformation/ContactInformattion";
+import DashboardLayout from "../Layoute/DashboardLayout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <SingleProductWithDetails></SingleProductWithDetails>,
-        loader: () => fetch("/product.json"),
+        loader: () => fetch("http://localhost:5000/products"),
       },
       {
         path: "/contact",
@@ -49,37 +49,33 @@ const router = createBrowserRouter([
         path: "/checkout",
         element: <Checkout></Checkout>,
       },
-      {
-        path: "/dashboard",
-        element: <DashboardLayout/>,
-      },
     ],
   },
   {
-path: "/dashboard",
-element: <DashboardLayout />,
-children:[
-  {
-    path: "/dashboard/AdminHome",
-    element: <AdminHome />
-  },
-  {
-    path: "/dashboard/orderList",
-    element: <OrderList />
-  },
-  {
-    path: "/dashboard/addproduct",
-    element: <AddProduct />
-  },
-  {
-    path: "/dashboard/updateproduct",
-    element: <UpdateProduct />
-  },
-  {
-    path: "/dashboard/contact",
-    element: <ContactInformattion />
-  }
-]
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: "/dashboard/AdminHome",
+        element: <AdminHome />,
+      },
+      {
+        path: "/dashboard/orderList",
+        element: <OrderList />,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <AddProduct />,
+      },
+      {
+        path: "/dashboard/updateproduct",
+        element: <UpdateProduct />,
+      },
+      {
+        path: "/dashboard/contact",
+        element: <ContactInformattion />,
+      },
+    ],
   },
   {
     path: "*",
