@@ -22,7 +22,7 @@ const Checkout = () => {
       accumulator + currentValue.totalOrderItems * currentValue.discountPrice
     );
   }, 0);
-  const totalCost = (Number(total) + Number(deliveryCost)).toFixed(2);
+  const totalCost = (Number(total) + Number(deliveryCost)).toFixed(2)||0;
   const Order = {
     data,
     totalCost,
@@ -48,8 +48,30 @@ const Checkout = () => {
         theme: "colored",
       });
     } else {
-      console.log(orderData);
-      navigate("/");
+      fetch("http://localhost:5000/pendingOrderData", {
+        method: "POST",
+        body: JSON.stringify(orderData),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const ID = data.orderID;
+          if (data.orderData.acknowledged) {
+            toast.success(`Successfully order Placed. OrderID:${ID}`, {
+              position: "top-center",
+              autoClose: 15000,
+              theme: "colored",
+            });
+            localStorage.removeItem("items");
+            setTimeout(() => {
+              window.scrollTo(0, 0);
+              navigate("/");
+              location.reload();
+            }, 15000);
+          }
+        });
     }
   };
 
@@ -161,7 +183,7 @@ const Checkout = () => {
             <div className="space-y-5">
               <div className="flex justify-between items-center text-2xl font-semibold">
                 <div>Sub Total:</div>
-                <div>{total.toFixed(2)}</div>
+                <div>{total?.toFixed(2)}</div>
               </div>
               <div>
                 <form>
@@ -217,11 +239,20 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-      <div className="" onClick={() => HandelOrder(Order)}>
-        <CommonButton
-          ButtonName="Place Order"
-          NavigateLink="/checkout"
-        ></CommonButton>
+      <div>
+        {data?.length > 0 ? (
+          <div className="" onClick={() => HandelOrder(Order)}>
+            <CommonButton
+              ButtonName="Place Order"
+              NavigateLink="/checkout"
+            ></CommonButton>
+          </div>
+        ) : (
+          <CommonButton
+            ButtonName="Add Product"
+            NavigateLink="/products"
+          ></CommonButton>
+        )}
       </div>
       <ToastContainer />
     </div>

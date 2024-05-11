@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const CommonButton = ({ ButtonName,NavigateLink }) => {
+const CommonButton = ({ ButtonName, NavigateLink }) => {
+  window.scroll(0, 0);
   return (
     <div>
       <button type="submit">
@@ -21,7 +22,7 @@ const CommonButton = ({ ButtonName,NavigateLink }) => {
 
 CommonButton.propTypes = {
   ButtonName: PropTypes.string.isRequired,
-  NavigateLink: PropTypes.string.isRequired,
+  NavigateLink: PropTypes.string,
 };
 
 export default CommonButton;

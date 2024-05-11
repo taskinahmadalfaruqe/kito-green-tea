@@ -29,10 +29,17 @@ const Cart = () => {
       </div>
 
       <div className="flex justify-end items-center gap-10 mt-10">
-        <CommonButton
-          ButtonName="Buy Now"
-          NavigateLink="/checkout"
-        ></CommonButton>
+        {cartData?.length > 0 ? (
+          <CommonButton
+            ButtonName="Buy Now"
+            NavigateLink="/checkout"
+          ></CommonButton>
+        ) : (
+          <CommonButton
+            ButtonName="Add Product"
+            NavigateLink="/products"
+          ></CommonButton>
+        )}
       </div>
     </div>
   );
