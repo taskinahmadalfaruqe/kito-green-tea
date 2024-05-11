@@ -49,7 +49,7 @@ const Checkout = () => {
         theme: "colored",
       });
     } else {
-      fetch("http://localhost:5000/pendingOrderData", {
+      fetch("https://e-shopbd-server.vercel.app/pendingOrderData", {
         method: "POST",
         body: JSON.stringify(orderData),
         headers: {

@@ -38,7 +38,7 @@ const AddProduct = () => {
         theme: "colored",
       });
     } else {
-      fetch("http://localhost:5000/products", {
+      fetch("https://e-shopbd-server.vercel.app/products", {
         method: "POST",
         body: JSON.stringify(product),
         headers: {

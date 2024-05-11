@@ -6,7 +6,7 @@ import SectionTitle from "../../shared/SectionTitle.jsx";
 const AllProductCard = () => {
   const [allProduct, SetAllProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://e-shopbd-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => SetAllProduct(data));
   }, []);

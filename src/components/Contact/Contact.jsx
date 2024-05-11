@@ -24,7 +24,7 @@ const Contact = () => {
     status: "pending",
   };
   const handelSubmit = (contactData) => {
-    fetch("http://localhost:5000/pendingContact", {
+    fetch("https://e-shopbd-server.vercel.app/pendingContact", {
       method: "POST",
       body: JSON.stringify(contactData),
       headers: {

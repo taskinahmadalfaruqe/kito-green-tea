@@ -7,7 +7,7 @@ const AllCartProductInTable = ({ subGrandTotalNumber }) => {
   const length = cartData?.length || 0;
   return (
     <div className="overflow-x-auto">
-      <div className="">
+      <div >
         <table className="w-full border-collapse border text-center ">
           <thead>
             <tr className="border border-Primary_Color">

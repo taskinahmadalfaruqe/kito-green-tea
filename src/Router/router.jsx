@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <SingleProductWithDetails></SingleProductWithDetails>,
-        loader: () => fetch("http://localhost:5000/products"),
+        loader: () => fetch("https://e-shopbd-server.vercel.app/products"),
       },
       {
         path: "/contact",
