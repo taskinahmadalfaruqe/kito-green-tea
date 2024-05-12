@@ -164,8 +164,6 @@ const Navbar = () => {
     </div>
   );
   const query = location?.pathname.includes("/dashboard");
-  console.log(query);
-
   return (
     <div>
       <div className=" bg-Primary_Color">
