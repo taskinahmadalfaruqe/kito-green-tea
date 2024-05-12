@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import LodeOrderTable from "./LodeOderTabel";
+import SectionTitle from "../../../shared/SectionTitle";
 
 
 const OrderList = () => {
@@ -23,7 +24,8 @@ const OrderList = () => {
   const length = pendingOrderData.length;
 
   return (
-    <div className="">
+    <div className="container">
+      <SectionTitle SectionTitleValue01="Pending" SectionTitleValue02="Order"></SectionTitle>
       <div>
         {length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-between items-start">

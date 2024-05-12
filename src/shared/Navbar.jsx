@@ -1,8 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import logo from "../assets/eshopbdlogo.png";
+import { FaHome } from "react-icons/fa";
+import { MdProductionQuantityLimits } from "react-icons/md";
+import { IoIosContacts } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
+  const location = useLocation();
   const localStorageCard = JSON.parse(localStorage.getItem("items"));
   const TotalCardItems = localStorageCard ? localStorageCard.length : 0;
 
@@ -45,7 +50,7 @@ const Navbar = () => {
         to={"/contact"}
         className={({ isActive }) =>
           isActive
-            ? "bg-White_Color    p-1 px-3 rounded-md"
+            ? "bg-White_Color  p-1 px-3 rounded-md"
             : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
         }
       >
@@ -62,10 +67,105 @@ const Navbar = () => {
       >
         Dashboard
       </NavLink>
-
     </div>
   );
-  
+  const DashboardNavItems = (
+    <div className="flex flex-col gap-1 lg:flex-row justify-start lg:justify-center lg:items-center font-semibold  uppercase text-base">
+      <NavLink
+        to={"/dashboard"}
+        className="hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+      >
+        <div className="flex gap-2 justify-start items-center">
+          <span className="lg:hidden">
+            <FaHome></FaHome>
+          </span>
+          <span>Admin Home</span>
+        </div>
+      </NavLink>
+      <NavLink
+        to={"/dashboard/adminHome"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        <div className="flex gap-2 justify-start items-center">
+          <span className="lg:hidden">
+            <CgProfile></CgProfile>
+          </span>
+          <span>Profile</span>
+        </div>
+      </NavLink>
+
+      <NavLink
+        to={"/dashboard/orderList"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        <div className="flex gap-2 justify-start items-center">
+          <span className="lg:hidden">
+            <FaCartShopping></FaCartShopping>
+          </span>
+          <span>Order</span>
+        </div>
+      </NavLink>
+
+      <NavLink
+        to={"/dashboard/addproduct"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        <div className="flex gap-2 justify-start items-center">
+          <span className="lg:hidden">
+            <MdProductionQuantityLimits></MdProductionQuantityLimits>
+          </span>
+          <span>Add Product</span>
+        </div>
+      </NavLink>
+
+      <NavLink
+        to={"/dashboard/contact"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        <div className="flex gap-2 justify-start items-center">
+          <span className="lg:hidden">
+            <IoIosContacts></IoIosContacts>
+          </span>
+          <span>User Query</span>
+        </div>
+      </NavLink>
+
+      <NavLink
+        to={"/"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color    p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        <div className="flex gap-2 justify-start items-center">
+          <span className="lg:hidden">
+            <FaHome></FaHome>
+          </span>
+          <span>User Home</span>
+        </div>
+      </NavLink>
+    </div>
+  );
+  const query = location?.pathname.includes("/dashboard");
+  console.log(query);
+
   return (
     <div>
       <div className=" bg-Primary_Color">
@@ -94,9 +194,9 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-Primary_Color  rounded-box w-[200px] md:w-[300px] h-screen"
               >
-                {NavItems}
+                {query ? DashboardNavItems : NavItems}
               </ul>
             </div>
             <Link to="/">
@@ -111,7 +211,9 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{NavItems}</ul>
+            <ul className="menu menu-horizontal px-2">
+              {query ? DashboardNavItems : NavItems}
+            </ul>
           </div>
           <div className="navbar-end relative">
             <Link to={"/cart"} className="btn px-6">

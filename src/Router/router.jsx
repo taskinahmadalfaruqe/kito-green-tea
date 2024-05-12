@@ -14,6 +14,7 @@ import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import UpdateProduct from "./../Pages/Dashboard/UpdateProduct/UpdateProduct";
 import ContactInformattion from "../Pages/Dashboard/ContactInformation/ContactInformattion";
 import DashboardLayout from "../Layoute/DashboardLayout/DashboardLayout";
+import DashboardStatus from "../Pages/Dashboard/DashboardStatus/DashboardStatus";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
     children: [
+      {
+        path: "/dashboard",
+        element: <DashboardStatus></DashboardStatus>,
+      },
       {
         path: "/dashboard/AdminHome",
         element: <AdminHome />,

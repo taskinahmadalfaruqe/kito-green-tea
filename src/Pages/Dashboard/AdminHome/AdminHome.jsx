@@ -4,7 +4,7 @@ import SectionTitle from '../../../shared/SectionTitle';
 
 const AdminHome = () => {
     return (
-        <div>
+        <div className='container'>
             <SectionTitle
              SectionTitleValue01="Admin"
                     SectionTitleValue02="Profile"

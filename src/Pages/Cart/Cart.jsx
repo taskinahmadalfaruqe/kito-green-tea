@@ -19,7 +19,7 @@ const Cart = () => {
   }, [cartData]);
 
   return (
-    <div className="container py-10">
+    <div className="container py-10 min-h-screen">
       <div className="space-y-5">
         <div>
           <AllCartProductInTable
