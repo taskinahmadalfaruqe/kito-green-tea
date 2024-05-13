@@ -15,6 +15,8 @@ import UpdateProduct from "./../Pages/Dashboard/UpdateProduct/UpdateProduct";
 import ContactInformattion from "../Pages/Dashboard/ContactInformation/ContactInformattion";
 import DashboardLayout from "../Layoute/DashboardLayout/DashboardLayout";
 import DashboardStatus from "../Pages/Dashboard/DashboardStatus/DashboardStatus";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,14 @@ const router = createBrowserRouter([
         path: "/checkout",
         element: <Checkout></Checkout>,
       },
+      {
+        path:"/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>
+      }
     ],
   },
   {
