@@ -61,8 +61,9 @@ const Navbar = () => {
       >
         Contact US
       </NavLink>
+
       <NavLink
-        to={"/login"}
+        to={"/admin/adminLogin"}
         className={({ isActive }) =>
           isActive
             ? "bg-White_Color  p-1 px-3 rounded-md"

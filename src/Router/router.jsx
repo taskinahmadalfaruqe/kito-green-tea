@@ -15,7 +15,7 @@ import UpdateProduct from "./../Pages/Dashboard/UpdateProduct/UpdateProduct";
 import ContactInformattion from "../Pages/Dashboard/ContactInformation/ContactInformattion";
 import DashboardLayout from "../Layoute/DashboardLayout/DashboardLayout";
 import DashboardStatus from "../Pages/Dashboard/DashboardStatus/DashboardStatus";
-import Longin from "../Pages/Login/Longin";
+import Longin from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
