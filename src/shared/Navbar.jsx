@@ -61,6 +61,16 @@ const Navbar = () => {
       >
         Contact US
       </NavLink>
+      <NavLink
+        to={"/login"}
+        className={({ isActive }) =>
+          isActive
+            ? "bg-White_Color  p-1 px-3 rounded-md"
+            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+        }
+      >
+        Login
+      </NavLink>
 
       <NavLink
         to={"/dashboard"}

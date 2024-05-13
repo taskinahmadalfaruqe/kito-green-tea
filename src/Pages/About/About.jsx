@@ -1,6 +1,5 @@
 
 import SectionTitle from "../../shared/SectionTitle";
-
 const About = () => {
   return (
     <div className="container min-h-screen">
@@ -14,3 +13,8 @@ const About = () => {
 };
 
 export default About;
+
+
+
+
+
