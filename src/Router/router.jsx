@@ -15,6 +15,8 @@ import UpdateProduct from "./../Pages/Dashboard/UpdateProduct/UpdateProduct";
 import ContactInformattion from "../Pages/Dashboard/ContactInformation/ContactInformattion";
 import DashboardLayout from "../Layoute/DashboardLayout/DashboardLayout";
 import DashboardStatus from "../Pages/Dashboard/DashboardStatus/DashboardStatus";
+import Longin from "../Pages/Login/Longin";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout></Checkout>,
+      },
+      {
+        path: "/admin/adminLogin",
+        element: <Longin></Longin>,
+      },
+      {
+        path: "/admin/adminResister",
+        element: <SignUp></SignUp>,
       },
     ],
   },

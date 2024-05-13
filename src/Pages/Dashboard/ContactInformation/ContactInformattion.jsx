@@ -59,7 +59,7 @@ const ContactInformattion = () => {
             </tbody>
           </table>
         ) : (
-          <div className="uppercase text-3xl font-semibold"> No data Found</div>
+          <div className="uppercase text-4xl font-semibold text-center"> No data Found</div>
         )}
       </div>
     </div>

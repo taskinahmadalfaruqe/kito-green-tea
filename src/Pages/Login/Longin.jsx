@@ -1,46 +1,98 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Longin = () => {
-    return (
-        <> 
-            <div className="hero log-in min-h-screen ">
-                <div className="hero-content flex-col lg:flex-row-reverse shadow-2xl">
+  const { handelLoginWithEmailPassword } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-                    <div className="card shrink-0 w-full max-w-sm  ">
-                        <form  className="card-body">
-                            <h2 className='text-5xl font-bold text-center text-black'>Login now!</h2>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-black">Email</span>
-                                </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered bg-white" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-black">Password</span>
-                                </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered bg-white" required />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            <div className="form-control mt-6">
-                                <input type="submit" className="btn btn-primary text-white font-semibold bg-Primary_Color" value="Login" />
-                            </div>
-                            
-                            <div className="form-control">
-                                <p className='text-Yellow_Color'><small>New Here? <Link to={'/signup'}> Create an Acount</Link></small></p>
-                            </div>
-                        </form>
-                     
-                    </div>
-                    
-                </div>
-            </div>
-        </>
-    );
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    handelLoginWithEmailPassword(email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        if (userCredential) {
+          const email = userCredential.user.email;
+          fetch(`http://localhost:5000/adminCollection/${email}`)
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+          //   navigate(location?.state ? location.state : "/");
+        }
+      })
+      .catch((error) => {
+        const ErrorMassage = error.message;
+        toast.error(`Something Went wrong with you. Error:${ErrorMassage}`, {
+          position: "top-center",
+          autoClose: 15000,
+          theme: "colored",
+        });
+      });
+  };
+
+  return (
+    <>
+      <div className="hero log-in min-h-screen ">
+        <div className="hero-content flex-col lg:flex-row-reverse shadow-2xl">
+          <div className="card shrink-0 w-full max-w-sm  ">
+            <form className="card-body" onSubmit={handleLogin}>
+              <h2 className="text-5xl font-bold text-center text-black">
+                Login now!
+              </h2>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  className="input input-bordered bg-white"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black">Password</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  className="input input-bordered bg-white"
+                  required
+                />
+              </div>
+              <div className="form-control mt-6">
+                <button
+                  type="submit"
+                  className="btn btn-primary text-white font-semibold bg-Primary_Color"
+                >
+                  Log In
+                </button>
+              </div>
+
+              <div className="form-control">
+                <p className="text-Yellow_Color">
+                  <small>
+                    New Here?{" "}
+                    <Link to={"/admin/adminResister"}> Create an Account</Link>
+                  </small>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <ToastContainer></ToastContainer>
+    </>
+  );
 };
 
 export default Longin;
