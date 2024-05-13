@@ -14,15 +14,16 @@ const SignUp = () => {
             <div className="hero log-in min-h-screen ">
                 <div className="hero-content shadow-2xl rounded-2xl border border-Primary_Color">
 
-                    <div className="card shrink-0 w-full max-w-md  ">
+                    <div className="card w-full">
                         <form onSubmit={handleSubmit()} className="card-body">
                             <h2 className='text-3xl font-bold text-center text-Primary_Color'>SignUp now!</h2>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-medium text-Primary_Color">Photo URL*</span>
                                 </label>
-                                <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL"
-                                    className="input input-bordered border-Primary_Color" />
+                                <input type="text" {...register("photoURL", { required: true })}
+                                    placeholder="Photo URL"
+                                    className="input input-bordered border-Primary_Color w-full" />
                                 {errors.photoURL && <span className="text-red-600">Photo URL field is required</span>}
                             </div>
                             <div className="form-control">
@@ -32,7 +33,7 @@ const SignUp = () => {
                                 <input type="text" {...register("name", { required: true })}
                                     name='name'
                                     placeholder="Name"
-                                    className="input input-bordered border-Primary_Color" />
+                                    className="input input-bordered border-Primary_Color w-full" />
                                 {errors.name && <span className="text-red-600">Name field is required</span>}
                             </div>
                             <div className="form-control">
@@ -42,15 +43,16 @@ const SignUp = () => {
                                 <input type="email" {...register("email", { required: true })}
                                     name="email"
                                     placeholder="email"
-                                    className="input input-bordered border-Primary_Color" />
+                                    className="input input-bordered border-Primary_Color w-full" />
                                 {errors.email && <span className="text-red-600">Email field is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-medium text-Primary_Color">Password*</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true, pattern: /^(?=.*[A-Z])(?=.*[@#$!%^&*()_+])[A-Za-z\d@#$!%^&*()_+]{6,}$/i })} name="password" placeholder="password"
-                                    className="input input-bordered border-Primary_Color" />
+                                <input type="password"
+                                    {...register("password", { required: true, pattern: /^(?=.*[A-Z])(?=.*[@#$!%^&*()_+])[A-Za-z\d@#$!%^&*()_+]{6,}$/i })} name="password" placeholder="password"
+                                    className="input input-bordered border-Primary_Color w-full" />
                                 {errors.password?.type === 'pattern' && <p className="text-red-500">More than 6 digit with capital latter & special character</p>}
                             </div>
 

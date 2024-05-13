@@ -79,7 +79,7 @@ const Footer = () => {
               </svg>
             </a>
             <a href="https://wa.me/8801538226662" target="_blank">
-              <FaWhatsapp className="text-White_Color h-7 w-7" />
+              <FaWhatsapp className="text-White_Color h-6 w-6" />
             </a>
           </div>
         </nav>
