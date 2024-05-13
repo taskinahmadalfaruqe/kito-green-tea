@@ -40,18 +40,18 @@ const SignUp = () => {
   return (
     <>
       <div className="hero log-in min-h-screen ">
-        <div className="hero-content   shadow-2xl">
+        <div className="hero-content shadow-2xl border border-Primary_Color rounded-lg">
           <div className="card shrink-0 w-full max-w-sm  ">
             <form
               onSubmit={handleSubmit(handelRegisterAdmin)}
               className="card-body"
             >
-              <h2 className="text-5xl font-bold text-center text-black">
+              <h2 className="text-3xl font-bold text-center text-Primary_Color">
                 SignUp now!
               </h2>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-black">Photo URL</span>
+                  <span className="label-text text-Primary_Color">Photo URL*</span>
                 </label>
                 <input
                   type="text"
@@ -67,7 +67,7 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-black">Name</span>
+                  <span className="label-text text-Primary_Color">Name*</span>
                 </label>
                 <input
                   type="text"
@@ -82,7 +82,7 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-black">Email</span>
+                  <span className="label-text text-Primary_Color">Email*</span>
                 </label>
                 <input
                   type="email"
@@ -97,7 +97,7 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-black">Password</span>
+                  <span className="label-text text-Primary_Color">Password*</span>
                 </label>
                 <input
                   type="password"
@@ -115,17 +115,12 @@ const SignUp = () => {
                     More than 6 digit with capital latter & special character
                   </p>
                 )}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
 
               <div className="form-control mt-6">
                 <input
                   type="submit"
-                  className="btn btn-primary text-white font-semibold"
+                  className="btn btn-primary text-White_Color bg-Primary_Color font-semibold"
                   value="Sign Up"
                 />
               </div>
