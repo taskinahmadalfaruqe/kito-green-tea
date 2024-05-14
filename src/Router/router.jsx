@@ -15,8 +15,9 @@ import UpdateProduct from "./../Pages/Dashboard/UpdateProduct/UpdateProduct";
 import ContactInformattion from "../Pages/Dashboard/ContactInformation/ContactInformattion";
 import DashboardLayout from "../Layoute/DashboardLayout/DashboardLayout";
 import DashboardStatus from "../Pages/Dashboard/DashboardStatus/DashboardStatus";
-import Longin from "../Pages/Login/Login";
+import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoutes from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -54,17 +55,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin/adminLogin",
-        element: <Longin></Longin>,
+        element: <Login></Login>,
       },
       {
-        path: "/admin/adminResister",
+        path: "/admin/adminRegister",
         element: <SignUp></SignUp>,
       },
     ],
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: (
+      <PrivateRoutes>
+        <DashboardLayout></DashboardLayout>,
+      </PrivateRoutes>
+    ),
     children: [
       {
         path: "/dashboard",

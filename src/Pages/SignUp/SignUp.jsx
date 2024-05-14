@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +11,6 @@ const SignUp = () => {
   const { handelCreateUserWithEmailPassword, handelUpdateUser } =
     useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
   const {
     register,
     handleSubmit,
@@ -22,7 +22,7 @@ const SignUp = () => {
       .then((res) => {
         handelUpdateUser(name, photoURL);
         const userData = { email: email, adminStatus: "user" };
-        fetch("http://localhost:5000/adminCollection", {
+        fetch("https://e-shopbd-server.vercel.app/adminCollection", {
           method: "POST",
           body: JSON.stringify(userData),
           headers: {
@@ -30,7 +30,14 @@ const SignUp = () => {
           },
         })
           .then((resA) => resA.json())
-          .then((dataA) => console.log(dataA));
+          .then((dataA) => {
+            toast.success(`You Are Successfully Login. Email:${email}`, {
+              position: "top-center",
+              autoClose: 5000,
+              theme: "colored",
+            });
+            navigate("/");
+          });
       })
       .catch((err) => {
         console.log(err);
@@ -49,9 +56,15 @@ const SignUp = () => {
               <h2 className="text-3xl font-bold text-center text-Primary_Color">
                 SignUp now!
               </h2>
+              <p className="uppercase text-red-600 font-semibold text-xl text-center">
+                *ONLY For Admin*
+              </p>
+
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-Primary_Color">Photo URL*</span>
+                  <span className="label-text text-Primary_Color">
+                    Photo URL*
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -97,7 +110,9 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-Primary_Color">Password*</span>
+                  <span className="label-text text-Primary_Color">
+                    Password*
+                  </span>
                 </label>
                 <input
                   type="password"

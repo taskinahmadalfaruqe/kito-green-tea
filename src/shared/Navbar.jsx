@@ -8,14 +8,14 @@ import { CgProfile } from "react-icons/cg";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { IoIosLogOut } from "react-icons/io";
+import { CiLogin } from "react-icons/ci";
 
 const Navbar = () => {
   const { user, handelSignOut } = useContext(AuthContext);
-  // console.log(user);
   const location = useLocation();
   const localStorageCard = JSON.parse(localStorage.getItem("items"));
   const TotalCardItems = localStorageCard ? localStorageCard.length : 0;
-
+  const query = location?.pathname.includes("/dashboard");
   const NavItems = (
     <div className="flex flex-col gap-1 lg:flex-row justify-start lg:justify-center lg:items-center font-semibold  uppercase text-base">
       <NavLink
@@ -61,28 +61,44 @@ const Navbar = () => {
       >
         Contact US
       </NavLink>
-
-      <NavLink
-        to={"/admin/adminLogin"}
-        className={({ isActive }) =>
-          isActive
-            ? "bg-White_Color  p-1 px-3 rounded-md"
-            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
-        }
-      >
-        Login
-      </NavLink>
-
-      <NavLink
-        to={"/dashboard"}
-        className={({ isActive }) =>
-          isActive
-            ? "bg-White_Color    p-1 px-3 rounded-md"
-            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
-        }
-      >
-        Dashboard
-      </NavLink>
+      {user ? (
+        <NavLink
+          to={"/admin/Adminlogin"}
+          onClick={handelSignOut}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-White_Color  p-1 px-3 rounded-md"
+              : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+          }
+        >
+          log Out
+        </NavLink>
+      ) : (
+        <NavLink
+          to={"/admin/adminLogin"}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-White_Color  p-1 px-3 rounded-md"
+              : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+          }
+        >
+          Login
+        </NavLink>
+      )}
+      {user ? (
+        <NavLink
+          to={"/dashboard"}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-White_Color    p-1 px-3 rounded-md"
+              : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+          }
+        >
+          Dashboard
+        </NavLink>
+      ) : (
+        ""
+      )}
     </div>
   );
   const DashboardNavItems = (
@@ -177,28 +193,44 @@ const Navbar = () => {
           <span>User Home</span>
         </div>
       </NavLink>
-
-      <NavLink
-        to={"/"}
-        className={({ isActive }) =>
-          isActive
-            ? "bg-White_Color    p-1 px-3 rounded-md"
-            : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
-        }
-      >
-        <div
-          className="flex gap-2 justify-start items-center"
-          onClick={handelSignOut}
+      {user ? (
+        <NavLink
+          to={"/"}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-White_Color    p-1 px-3 rounded-md"
+              : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+          }
         >
-          <span className="lg:hidden">
-            <IoIosLogOut></IoIosLogOut>
-          </span>
-          <span>Log Out</span>
-        </div>
-      </NavLink>
+          <div
+            className="flex gap-2 justify-start items-center"
+            onClick={handelSignOut}
+          >
+            <span className="lg:hidden">
+              <IoIosLogOut></IoIosLogOut>
+            </span>
+            <span>Log Out</span>
+          </div>
+        </NavLink>
+      ) : (
+        <NavLink
+          to={"/admin/Adminlogin"}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-White_Color    p-1 px-3 rounded-md"
+              : " hover:bg-whiteColor    hover:text-White_Color p-1 px-3 rounded-md"
+          }
+        >
+          <div className="flex gap-2 justify-start items-center">
+            <span className="lg:hidden">
+              <CiLogin></CiLogin>
+            </span>
+            <span>Log In</span>
+          </div>
+        </NavLink>
+      )}
     </div>
   );
-  const query = location?.pathname.includes("/dashboard");
   return (
     <div>
       <div className=" bg-Primary_Color">
