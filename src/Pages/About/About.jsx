@@ -1,8 +1,7 @@
-
 import SectionTitle from "../../shared/SectionTitle";
 const About = () => {
   return (
-    <div className="container min-h-screen">
+    <div className="container h-[300px]">
       <SectionTitle
         SectionTitleValue01="About"
         SectionTitleValue02="US"
@@ -13,8 +12,3 @@ const About = () => {
 };
 
 export default About;
-
-
-
-
-
