@@ -6,11 +6,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 const PrivateRoutes = ({ children }) => {
   const { user, isUserLoading, handelSignOut } = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false);
-
   useEffect(() => {
     if (!user || !user.email || isUserLoading) return;
 
-    fetch(`https://e-shopbd-server.vercel.app/${user.email}`)
+    fetch(`https://e-shopbd-server.vercel.app/adminCollection/${user.email}`)
       .then((res) => res.json())
       .then((value) => {
         if (value) {
@@ -21,13 +20,12 @@ const PrivateRoutes = ({ children }) => {
       })
       .catch((error) => {
         console.error("Error fetching admin data:", error);
-        // Optionally handle errors here
       });
   }, [user, isUserLoading, handelSignOut]);
 
   if (isUserLoading) {
     return (
-      <div className="text-center h-screen flex justify-center items-center">
+      <div className="text-center  flex justify-center items-center">
         <progress className="progress w-56 text-Primary_Color"></progress>
       </div>
     );
