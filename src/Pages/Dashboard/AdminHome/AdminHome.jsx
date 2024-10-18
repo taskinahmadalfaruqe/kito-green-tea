@@ -9,7 +9,7 @@ const AdminHome = () => {
              SectionTitleValue01="Admin"
                     SectionTitleValue02="Profile"
                     SectionDescription="Hi, Welcome Admin."
-                    ></SectionTitle>
+                    ></SectionTitle> 
             <div className="flex items-center  w-full justify-center">
                 <div className="max-w-xs">
                     <div className="bg-White_Color shadow-2xl border border-Primary_Color rounded-lg py-3">
